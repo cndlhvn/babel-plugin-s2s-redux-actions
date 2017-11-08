@@ -9,7 +9,7 @@ module.exports = babel => {
     visitor: {
       ExpressionStatement: function(path){
         const ExpressionStatementName = path.node.expression.name
-        const hoge = constantCase(ExpressionStatementName)
+        const SnakeExpressionStatementName = constantCase(ExpressionStatementName)
         path.replaceWith(
           t.ExportNamedDeclaration(
             t.VariableDeclaration(
@@ -18,7 +18,7 @@ module.exports = babel => {
                 t.identifier(ExpressionStatementName),
                 t.CallExpression(
                   t.Identifier("createAction"),
-                  [t.StringLiteral(hoge)]
+                  [t.StringLiteral(SnakeExpressionStatementName)]
                 )
               )]
             )
