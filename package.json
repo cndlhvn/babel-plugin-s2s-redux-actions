@@ -1,0 +1,23 @@
+{
+  "name": "babel-plugin-s2s-redux-actions",
+  "version": "0.0.1",
+  "description": "generate redux actions",
+  "license": "MIT",
+  "author": "candle",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-types": "^6.26.0",
+    "lodash.snakecase": "^4.1.1",
+    "s2s-utils": "^0.4.2"
+  }
+}
