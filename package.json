@@ -19,5 +19,8 @@
     "babel-types": "^6.26.0",
     "lodash.snakecase": "^4.1.1",
     "s2s-utils": "^0.4.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0"
   }
 }
