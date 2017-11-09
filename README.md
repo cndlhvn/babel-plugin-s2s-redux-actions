@@ -64,6 +64,22 @@ import { createAction } from 'redux-actions'
 Type action name with camelcase and save it.
 
 ```js
+searchPokemon
+```
+
+It will be expanded like this.
+
+#### Out:
+
+```js
+export const searchPokemon = createAction("SEARCH_POKEMON");
+```
+
+#### Request/Success/Failure pattern
+
+Type action name containing "Request" with camelcase and save it.
+
+```js
 getPokemonRequest
 ```
 
@@ -73,7 +89,10 @@ It will be expanded like this.
 
 ```js
 export const getPokemonRequest = createAction("GET_POKEMON_REQUEST");
+export const getPokemonSuccess = createAction("GET_POKEMON_SUCCESS");
+export const getPokemonFailure = createAction("GET_POKEMON_FAILURE");
 ```
+
 
 ## Result
 
@@ -82,5 +101,18 @@ import { createAction } from "redux-actions";
 
 export const getPokemonRequest = createAction("GET_POKEMON_REQUEST");
 
-
 ```
+
+# Test
+
+This plugin has two test files. \
+First is babel plugin main test file named `test.js` on root direcotry. \
+Next is a `test/redux_actions_test.js` that will be transformed by the plugin. 
+
+Run this command.
+
+` npm run test`
+
+Test will run and you can see what happen.
+
+If you modify the target javascript source code, please change the `test/redux_actions_test.js`.

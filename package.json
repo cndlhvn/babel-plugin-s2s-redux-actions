@@ -1,12 +1,12 @@
 {
   "name": "babel-plugin-s2s-redux-actions",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "generate redux actions",
   "license": "MIT",
   "author": "candle",
   "scripts": {
     "build": "babel src --out-dir lib",
-    "test": "node test.js test/convert_test.js"
+    "test": "node test.js test/redux_actions_test.js"
   },
   "engines": {
     "node": ">=6"
