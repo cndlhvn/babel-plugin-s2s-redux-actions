@@ -51,7 +51,7 @@ Start the s2s with yarn command
 
 ## Usage
 
-#### When create actions file
+#### When create a action file
 
 When you create a `src/actions/*.js`, the below code is inserted automatically.
 
