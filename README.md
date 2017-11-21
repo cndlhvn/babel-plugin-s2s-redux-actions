@@ -93,6 +93,27 @@ export const getPokemonSuccess = createAction("GET_POKEMON_SUCCESS");
 export const getPokemonFailure = createAction("GET_POKEMON_FAILURE");
 ```
 
+### Disable autocomplete
+The autocomplete function is activated in default. \
+If you want to disable autocomplete, pass a `{autocomplete: false}` parameter.
+
+```js
+module.exports = {
+  watch: './**/*.js',
+  plugins: [
+    {
+      test: /src\/actions\/.*.js/,
+      plugin: ['s2s-redux-actions',{autocomplete: false}]
+    },
+  ],
+  templates: [
+    {
+      test: /src\/actions\/.*.js/, input: 'redux-action.js'
+    }
+  ]
+}
+
+```
 
 ## Result
 
@@ -103,11 +124,12 @@ export const getPokemonRequest = createAction("GET_POKEMON_REQUEST");
 
 ```
 
+
 # Test
 
 This plugin has two test files. \
 First is babel plugin main test file named `test.js` on root direcotry. \
-Next is a `test/redux_actions_test.js` that will be transformed by the plugin. 
+Next is a `test/redux_actions_test.js` that will be transformed by the plugin.
 
 Run this command.
 

@@ -9,26 +9,29 @@ module.exports = babel => {
     visitor: {
       Program: {
         enter(path, state) {
-          path.traverse({
-            ExpressionStatement(path){
-              const ExpressionStatementName = path.node.expression.name
-              if (ExpressionStatementName.endsWith('Request')) {
-                const program = path.find(parent => parent.isProgram())
-                program.node.body.push(
-                  t.ExpressionStatement(
-                    t.identifier(
-                      ExpressionStatementName.replace(/Request$/, 'Success')
-                    )
-                  ),
-                  t.ExpressionStatement(
-                    t.identifier(
-                      ExpressionStatementName.replace(/Request$/, 'Failure')
+          const { autocomplete } = state.opts
+          if(autocomplete == undefined || autocomplete == true){
+            path.traverse({
+              ExpressionStatement(path){
+                const ExpressionStatementName = path.node.expression.name
+                if (ExpressionStatementName.endsWith('Request')) {
+                  const program = path.find(parent => parent.isProgram())
+                  program.node.body.push(
+                    t.ExpressionStatement(
+                      t.identifier(
+                        ExpressionStatementName.replace(/Request$/, 'Success')
+                      )
+                    ),
+                    t.ExpressionStatement(
+                      t.identifier(
+                        ExpressionStatementName.replace(/Request$/, 'Failure')
+                      )
                     )
                   )
-                )
+                }
               }
-            }
-          })
+            })
+          }
         }
       },
       ExpressionStatement: function(path){
